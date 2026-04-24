@@ -2,23 +2,23 @@ class Toolkit < Formula
   desc "Safety kit between AI coding agents and sensitive services"
   homepage "https://github.com/scott-abernethy/toolkit"
   license "MIT"
-  version "0.0.2"
+  version "0.0.3"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/scott-abernethy/toolkit/releases/download/v0.0.2/toolkit-0.0.2-darwin-arm64.tar.gz"
-      sha256 "f2c08db14b590cdb8d68c958f1a3d55e431b572f3d8dc42b1624e7dd5dbf2e0c"
+      url "https://github.com/scott-abernethy/toolkit/releases/download/v0.0.3/toolkit-0.0.3-darwin-arm64.tar.gz"
+      sha256 "e877756765b31d84624e8f43ca058d7e479698827698a379d58cac36f7b1bc15"
     else
-      url "https://github.com/scott-abernethy/toolkit/releases/download/v0.0.2/toolkit-0.0.2-darwin-amd64.tar.gz"
-      sha256 "8b11d3ea49a0cd6078dbae007998f85423e2d65843ba16edf40c04226ecc160a"
+      url "https://github.com/scott-abernethy/toolkit/releases/download/v0.0.3/toolkit-0.0.3-darwin-amd64.tar.gz"
+      sha256 "4b49ca44e318053a6cd67cfdcf999023cb311c56ccbce852bc07192bf811812f"
     end
   end
 
   def install
-    bin.install "bin/toolkit"
-    bin.install "bin/tkpsql"
-    bin.install "bin/tkmsql"
-    bin.install "bin/tkdbr"
+    bin.install "toolkit"
+    bin.install "tkpsql"
+    bin.install "tkmsql"
+    bin.install "tkdbr"
   end
 
   test do
