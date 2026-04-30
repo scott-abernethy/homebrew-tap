@@ -2,15 +2,15 @@ class Toolkit < Formula
   desc "Safety kit between AI coding agents and sensitive services"
   homepage "https://github.com/scott-abernethy/toolkit"
   license "MIT"
-  version "0.1.1"
+  version "0.1.2"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/scott-abernethy/toolkit/releases/download/v0.1.1/toolkit-0.1.1-darwin-arm64.tar.gz"
-      sha256 "99dcb443e9d57aa1129f7d5282a312bb8a7217942c5427bdcce9179a608d38bd"
+      url "https://github.com/scott-abernethy/toolkit/releases/download/v0.1.2/toolkit-0.1.2-darwin-arm64.tar.gz"
+      sha256 "6d57ec6792f4bc9676e9cbce71e043c279da4e1946811a0196669945938d4aca"
     else
-      url "https://github.com/scott-abernethy/toolkit/releases/download/v0.1.1/toolkit-0.1.1-darwin-amd64.tar.gz"
-      sha256 "cf0ee6607ee121a7650a9d7f55a71bbd90d886ffdb0a9857833e29ac6b82d38c"
+      url "https://github.com/scott-abernethy/toolkit/releases/download/v0.1.2/toolkit-0.1.2-darwin-amd64.tar.gz"
+      sha256 "37f04a5d25124f2e51c7ab5df2822c476ed24e7b42592cb169e10d80317e71f7"
     end
   end
 
@@ -23,13 +23,13 @@ class Toolkit < Formula
     libexec.install "libexec/setup-daemon.sh"
   end
 
+  def post_install
+    system "sudo", "#{opt_libexec}/setup-daemon.sh"
+  end
+
   def caveats
     <<~EOS
-      To set up the daemon (creates _toolkit system user, installs LaunchDaemon):
-
-        sudo #{opt_libexec}/setup-daemon.sh
-
-      Then add your connections to the daemon config:
+      The daemon setup script was run automatically. Add your connections:
 
         toolkit daemon config edit
 
@@ -37,13 +37,9 @@ class Toolkit < Formula
 
         toolkit daemon status
 
-      After `brew upgrade toolkit`, re-run the setup script to update the daemon binary:
-
-        sudo #{opt_libexec}/setup-daemon.sh
-
       For Databricks OAuth login, run as _toolkit after daemon setup:
 
-        sudo -u _toolkit env HOME=/var/lib/toolkit toolkit dbr login --conn <name>
+        sudo -u _toolkit env HOME=/var/lib/toolkit tkdbr --conn <name> auth login
     EOS
   end
 
