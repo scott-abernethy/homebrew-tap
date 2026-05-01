@@ -2,15 +2,15 @@ class Toolkit < Formula
   desc "Safety kit between AI coding agents and sensitive services"
   homepage "https://github.com/scott-abernethy/toolkit"
   license "MIT"
-  version "0.1.7"
+  version "0.1.8"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/scott-abernethy/toolkit/releases/download/v0.1.7/toolkit-0.1.7-darwin-arm64.tar.gz"
-      sha256 "cf6980da373c1f2469a343749b33b88f5aa48f9ec8fd8d91c5ead07af4cfcff1"
+      url "https://github.com/scott-abernethy/toolkit/releases/download/v0.1.8/toolkit-0.1.8-darwin-arm64.tar.gz"
+      sha256 "a569fa33a0437aa63bf2d574aed64f2a1220c2dd26fc58e60bcf38230eb11824"
     else
-      url "https://github.com/scott-abernethy/toolkit/releases/download/v0.1.7/toolkit-0.1.7-darwin-amd64.tar.gz"
-      sha256 "17995702b5d8a7f84e4b54d2627ed01bbd44751a50e1dbc8ed22f2f9c5f10c9c"
+      url "https://github.com/scott-abernethy/toolkit/releases/download/v0.1.8/toolkit-0.1.8-darwin-amd64.tar.gz"
+      sha256 "d2f1d98ca3a4d9aab18d621214fc5b5de09dc8ef6914aef0c8580d599c7cd01f"
     end
   end
 
@@ -38,11 +38,11 @@ class Toolkit < Formula
 
       Then add your connections:
 
-        toolkit daemon config edit
+        toolkit config edit
 
       Verify the daemon is running:
 
-        toolkit daemon status
+        toolkit status
 
       For Databricks OAuth login, run as _toolkit after daemon setup:
 
