@@ -2,15 +2,15 @@ class Toolkit < Formula
   desc "Safety kit between AI coding agents and sensitive services"
   homepage "https://github.com/scott-abernethy/toolkit"
   license "MIT"
-  version "0.1.5"
+  version "0.1.6"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/scott-abernethy/toolkit/releases/download/v0.1.5/toolkit-0.1.5-darwin-arm64.tar.gz"
-      sha256 "eb632662402f3558248abba1fe6cf942b601aae4014f8a075b09e4353a14e47e"
+      url "https://github.com/scott-abernethy/toolkit/releases/download/v0.1.6/toolkit-0.1.6-darwin-arm64.tar.gz"
+      sha256 "08a141d428036c9a3cbc135a9222c12ee51acf1863d70a9f7b3425607972718b"
     else
-      url "https://github.com/scott-abernethy/toolkit/releases/download/v0.1.5/toolkit-0.1.5-darwin-amd64.tar.gz"
-      sha256 "c2757cbee553eedf3c0067b836d3c910bb2018a95574ebb811c6c905a91d71c9"
+      url "https://github.com/scott-abernethy/toolkit/releases/download/v0.1.6/toolkit-0.1.6-darwin-amd64.tar.gz"
+      sha256 "605af754b821d01440e57bcb444dd43872174ef9e593be6d6e5b0142c46f24f3"
     end
   end
 
@@ -24,12 +24,19 @@ class Toolkit < Formula
   end
 
   def post_install
-    system "sudo", "#{opt_libexec}/setup-daemon.sh"
+    opoo "Run the following to complete daemon setup:"
+    opoo "  sudo #{opt_libexec}/setup-daemon.sh"
   end
 
   def caveats
     <<~EOS
-      The daemon setup script was run automatically. Add your connections:
+      Complete daemon setup by running (requires sudo):
+
+        sudo #{opt_libexec}/setup-daemon.sh
+
+      This is required after both fresh installs and upgrades.
+
+      Then add your connections:
 
         toolkit daemon config edit
 
