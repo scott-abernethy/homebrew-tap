@@ -2,15 +2,15 @@ class Toolkit < Formula
   desc "Safety kit between AI coding agents and sensitive services"
   homepage "https://github.com/scott-abernethy/toolkit"
   license "MIT"
-  version "0.2.1"
+  version "0.2.2"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/scott-abernethy/toolkit/releases/download/v0.2.1/toolkit-0.2.1-darwin-arm64.tar.gz"
-      sha256 "5a62ef4cf8806656ef1c4bd111d1d253c04b9d98414ab772a27ab093a14a0ecd"
+      url "https://github.com/scott-abernethy/toolkit/releases/download/v0.2.2/toolkit-0.2.2-darwin-arm64.tar.gz"
+      sha256 "524a9819200339be46e93a6be25c814ae45e540408c3e8e4c9efc692eafcfe51"
     else
-      url "https://github.com/scott-abernethy/toolkit/releases/download/v0.2.1/toolkit-0.2.1-darwin-amd64.tar.gz"
-      sha256 "a5ea940c246b750e261a17e9de362b7cb9667a333f44b46eb2990db4a23243bc"
+      url "https://github.com/scott-abernethy/toolkit/releases/download/v0.2.2/toolkit-0.2.2-darwin-amd64.tar.gz"
+      sha256 "50950ee51dc150c4720cb4b57c51f568c8506f56c99cbf0ac14e0956abffa91a"
     end
   end
 
